@@ -1,10 +1,51 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <title>$Title$</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Receive Files</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='receive.css') }}">
 </head>
 <body>
-$END$
+    <div class="container">
+        <h1>Receive Files</h1>
+        {% with messages = get_flashed_messages(with_categories=true) %}
+        {% if messages %}
+            <ul class="messages">
+            {% for category, message in messages %}
+                <li class="message {{ category }}">{{ message }}</li>
+            {% endfor %}
+            </ul>
+        {% endif %}
+        {% endwith %}
+
+        <form method="POST" class="share-key-form">
+            <label for="code">Enter Share Key:</label>
+            <input type="text" id="code" name="code" maxlength="6" class="share-key-input">
+            <button type="submit" class="submit-btn">Retrieve Files</button>
+        </form>
+
+        {% if files %}
+            <div class="file-tiles">
+            {% for file in files %}
+                <div class="file-tile">
+                    <div class="file-preview">
+                        {% if file[2] %}
+                            <!-- Display Base64 image preview -->
+                            <img src="data:image/jpeg;base64,{{ file[2] }}" alt="File Preview" class="file-img">
+                        {% else %}
+                            <div class="file-icon">{{ file[1].split('.')[-1] }}</div>
+                        {% endif %}
+                    </div>
+                    <div class="file-name">{{ file[1] }}</div>
+                <br>
+                    <a href="{{ url_for('download_file', file_id=file[0]) }}" class="download-btn">Download</a>
+                </div>
+            {% endfor %}
+            </div>
+        {% endif %}
+
+        <a href="/" class="back-link">Back to Home</a>
+    </div>
 </body>
 </html>

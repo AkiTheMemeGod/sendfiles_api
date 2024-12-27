@@ -1,23 +1,24 @@
 body {
-    font-family: 'Arial', sans-serif;
-    background: #f0f0f0;
+    font-family: monospace,monospace;
+    background: #f9f9f9;
     margin: 0;
     padding: 0;
 }
 
 .container {
+    align-self: center;
     width: 50%;
     margin: auto;
-    padding: 50px 20px;
+    padding: 150px 20px;
     background: #fff;
-    border-radius: 8px;
+    border-radius: 20px;
     box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
 }
 
 h1 {
     text-align: center;
     margin-bottom: 30px;
-    font-size: 2rem;
+    font-size: 4rem;
 }
 
 .messages {
@@ -48,15 +49,15 @@ h1 {
 .submit-btn {
     padding: 10px 20px;
     font-size: 1rem;
-    background-color: #feb47b;
+    background-color: #ff1b00;
     border: none;
     color: white;
-    border-radius: 25px;
+    border-radius: 5px;
     cursor: pointer;
 }
 
 .submit-btn:hover {
-    background-color: #ff7e5f;
+    background-color: #7cff01;
 }
 
 .back-link {

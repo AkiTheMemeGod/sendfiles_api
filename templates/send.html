@@ -1,10 +1,30 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <title>$Title$</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Send Files</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='send.css') }}">
 </head>
 <body>
-$END$
+    <div class="container">
+        <h1>Send Files</h1>
+        {% with messages = get_flashed_messages(with_categories=true) %}
+        {% if messages %}
+            <ul class="messages">
+            {% for category, message in messages %}
+                <li class="message {{ category }}">{{ message }}</li>
+            {% endfor %}
+            </ul>
+        {% endif %}
+        {% endwith %}
+
+        <form method="POST" enctype="multipart/form-data" class="upload-form">
+            <input type="file" name="files" multiple required class="file-input">
+            <button type="submit" class="submit-btn">Upload</button>
+        </form>
+
+        <a href="/" class="back-link">Back to Home</a>
+    </div>
 </body>
 </html>

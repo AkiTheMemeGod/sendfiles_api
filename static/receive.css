@@ -1,23 +1,24 @@
 body {
-    font-family: 'Arial', sans-serif;
-    background: #f0f0f0;
+    font-family: monospace,monospace;
+    background: #f9f9f9;
     margin: 0;
     padding: 0;
 }
 
 .container {
+    align-self: center;
     width: 50%;
     margin: auto;
-    padding: 50px 20px;
+    padding: 150px 20px;
     background: #fff;
-    border-radius: 8px;
+    border-radius: 20px;
     box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
 }
 
 h1 {
     text-align: center;
     margin-bottom: 30px;
-    font-size: 2rem;
+    font-size: 4rem;
 }
 
 .messages {
@@ -33,30 +34,94 @@ h1 {
     margin-bottom: 10px;
 }
 
-.upload-form {
+.share-key-form {
     display: flex;
     flex-direction: column;
     align-items: center;
 }
 
-.file-input {
-    margin: 20px 0;
+.share-key-input {
+    margin: 30px 0;
     padding: 10px;
     font-size: 1rem;
+    width: 30%;
+    border-radius: 5px;
 }
 
 .submit-btn {
     padding: 10px 20px;
     font-size: 1rem;
-    background-color: #feb47b;
+    background-color: #ff1b00;
     border: none;
     color: white;
-    border-radius: 25px;
+    border-radius: 5px;
     cursor: pointer;
 }
 
 .submit-btn:hover {
+    background-color: #7cff01;
+}
+
+.file-tiles {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    margin-top: 40px;
+}
+
+.file-tile {
+    width: 200px;
+    margin: 15px;
+    padding: 20px;
+    background-color: #f7f7f7;
+    border-radius: 8px;
+    text-align: center;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease;
+}
+
+.file-tile:hover {
+    transform: translateY(-5px);
+}
+
+.file-preview {
+    margin-bottom: 15px;
+}
+
+.file-img {
+    max-width: 100%;
+    height: auto;
+    border-radius: 5px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+}
+
+.file-icon {
+    background-color: #ddd;
+    padding: 20px;
+    border-radius: 5px;
+    font-size: 1.2rem;
+    color: #333;
+    font-weight: bold;
+}
+
+.file-name {
+    font-size: 1rem;
+    margin-top: 10px;
+    font-weight: bold;
+}
+
+.download-btn {
+    padding: 8px 16px;
     background-color: #ff7e5f;
+    border: none;
+    color: white;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 1rem;
+}
+
+.download-btn:hover {
+    background-color: #feb47b;
 }
 
 .back-link {
@@ -65,4 +130,44 @@ h1 {
     margin-top: 20px;
     text-decoration: none;
     color: #3b3b3b;
+}
+/* Additional CSS for image previews */
+.file-preview {
+    margin-bottom: 15px;
+}
+
+.file-img {
+    max-width: 100%;
+    height: auto;
+    border-radius: 5px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+}
+
+.file-icon {
+    background-color: #ddd;
+    padding: 20px;
+    border-radius: 5px;
+    font-size: 1.2rem;
+    color: #333;
+    font-weight: bold;
+}
+
+.file-name {
+    font-size: 1rem;
+    margin-top: 10px;
+    font-weight: bold;
+}
+
+.download-btn {
+    padding: 8px 16px;
+    background-color: #ff7e5f;
+    border: none;
+    color: white;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 1rem;
+}
+
+.download-btn:hover {
+    background-color: #feb47b;
 }
