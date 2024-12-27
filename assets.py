@@ -56,4 +56,5 @@ class Database:
         with self.connection as conn:
             cursor = conn.cursor()
             cursor.execute("DELETE FROM files WHERE id = ?", (file_id,))
+            cursor.execute("vacuum")
             conn.commit()
