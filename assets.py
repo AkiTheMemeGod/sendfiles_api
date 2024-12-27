@@ -28,6 +28,11 @@ class Database:
             )
             conn.commit()
 
+    def vacuum(self):
+        cursor = self.connection.cursor()
+        cursor.execute("vacuum")
+        self.connection.close()
+
     def get_files(self, key):
         with self.connection as conn:
             cursor = conn.cursor()
@@ -56,5 +61,4 @@ class Database:
         with self.connection as conn:
             cursor = conn.cursor()
             cursor.execute("DELETE FROM files WHERE id = ?", (file_id,))
-            cursor.execute("vacuum")
             conn.commit()

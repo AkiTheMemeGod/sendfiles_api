@@ -2,10 +2,19 @@ from flask import Flask, request, render_template, send_file, flash, redirect, j
 import secrets
 from assets import Database
 import io
+
 app = Flask(__name__)
 app.secret_key = secrets.token_hex(16)
 
+app.config['MAX_CONTENT_LENGTH'] = 500 * 1024 * 1024
+
 db = Database()
+
+
+@app.errorhandler(413)
+def request_entity_too_large(error):
+    flash("File is too large. Maximum size allowed is 10 MB.", "danger")
+    return redirect('/send')
 
 
 @app.route('/')
@@ -59,7 +68,6 @@ def api_send_files():
             return {
                 "message": "No files uploaded.",
             }, 400  # HTTP Status Code 400 means Bad Request
-
 
 
 @app.route('/receive', methods=['GET', 'POST'])
